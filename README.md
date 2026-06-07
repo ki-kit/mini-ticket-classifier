@@ -105,3 +105,6 @@ mini-ticket-classifier/
 ├── requirements.txt      # Third-party Python dependencies
 └── README.md             # Project documentation and guide
 ```
+
+Link to the LLM chat history: 
+https://gemini.google.com/share/7d71f99ccac8
