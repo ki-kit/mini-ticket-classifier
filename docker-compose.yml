@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  # The UI and validation Logic
+  web-app:
+    build: .
+    container_name: ticket-classifier-ui
+    ports:
+      - "8501:8501"
+    environment:
+      - OLLAMA_URL=http://ollama-engine:11434
+      - MODEL_NAME=llama3
+    depends_on:
+      - ollama-engine
+
+  # The Local LLM Engine
+  ollama-engine:
+    image: ollama/ollama:latest
+    container_name: ollama-engine
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_storage:/root/.ollama
+
+volumes:
+  ollama_storage:
